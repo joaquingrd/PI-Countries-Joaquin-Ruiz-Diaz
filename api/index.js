@@ -19,10 +19,13 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const PORT = 3001
+
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
-  server.listen(3001, () => {
-    console.log('%s listening at 3001'); // eslint-disable-line no-console
+conn.sync({ force : true }).then(() => { //alter true - actualiza las tablas de BDD en base a los modelos
+  server.listen(PORT, () => {
+    console.log('listening at port', PORT); // eslint-disable-line no-console
   });
-});
+})
+.catch(err=> console.log(err.message));
