@@ -15,7 +15,7 @@ countryRouter.get('/', async (req, res) => {
         res.status(SECCESS).json(countries) 
 
     } catch (error) {
-        res.status(ERR).json(error.message)
+        res.status(ERR).json({error: error.message})
     }
 })
 
@@ -25,7 +25,7 @@ countryRouter.get('/:id', async (req, res) => {
         let country = await getCountry(id)
         res.status(SECCESS).json(country)
     } catch (error) {
-        res.status(ERR).json(error.message)
+        res.status(ERR).json({error: error.message})
         
     }
 })
