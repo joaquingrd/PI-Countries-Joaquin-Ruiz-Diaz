@@ -1,6 +1,7 @@
 const { Router } = require("express");
-const countryRouter = Router();
 const{ getAllCountries, getCountry, findCountry } = require('../controllers/countryControllers')
+
+const countryRouter = Router();
 
 const SECCESS = 200
 const ERR = 404
@@ -29,4 +30,4 @@ countryRouter.get('/:id', async (req, res) => {
     }
 })
 
-module.exports = countryRouter;
+module.exports = countryRouter

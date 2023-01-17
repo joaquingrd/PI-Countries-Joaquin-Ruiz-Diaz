@@ -19,7 +19,7 @@ const getCountry = async (id) => {
 } 
 
 const findCountry = async (name) => {
-    let upperName = name.charAt(0).toUpperCase() + name.slice(1)
+    let upperName = name.charAt(0).toUpperCase() + name.slice(1) // coloco la primera letra en mayuscula para que coincida
     const countryName  = await Country.findAll({
         where: {
             name: {[ Op.iLike ]: `%${upperName}%`}
@@ -29,7 +29,6 @@ const findCountry = async (name) => {
     if(countryName.length) return countryName
     throw Error (`There is no country with the name: ${name.toUpperCase()} `)
     
-
 }
 
 
