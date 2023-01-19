@@ -7,16 +7,16 @@ const { Country } = require('./db');
 const getCountryByApi = async () => {
     try {
         const response = await axios.get('https://restcountries.com/v3/all'); //solicito los paises desde la API
-        const getInfo = await response.data.map(element => { //Selecciono de la respuesta, solo los elementos que preciso
+        const getInfo = await response.data.map(country => { //Selecciono de la respuesta, solo los countryos que preciso
             return {
-                id: element.cca3,
-                name: element.name.common,
-                flags: element.flags[1],
-                continents: element.continents? element.continents[0] : element.continents[0] = 'continents not found',
-                capital: element.capital? element.capital[0] : element.capital = 'capital not found',
-                subregion: element.subregion? element.subregion : element.subregion = 'subregion not found',
-                area: element.area,
-                population: element.population
+                id: country.cca3,
+                name: country.name.common,
+                flags: country.flags[1],
+                continents: country.continents? country.continents[0] : country.continents[0] = 'continents not found',
+                capital: country.capital? country.capital[0] : country.capital = 'capital not found',
+                subregion: country.subregion? country.subregion : country.subregion = 'subregion not found',
+                area: country.area,
+                population: country.population
             }
         })
         return getInfo
@@ -24,14 +24,13 @@ const getCountryByApi = async () => {
         console.log(error)
     }
 }
-
-async function countryDataBase () {
+const countryDataBase = async () => {
     try {
-        const countr = await getCountryByApi();
+        const countries = await getCountryByApi();
         const countDb = await Country.findAll(); // Traigo todos los datos de la base de datos
         if(!countDb.length) { //Verifico si existen datos en la base de datos.
-            const createCount = await Country.bulkCreate(countr) // si no existen, creo los paises en la base de datos ejecutando la función "getCountryByApi"
-            return createCount
+            const createCountries = await Country.bulkCreate(countries) // si no existen, creo los paises en la base de datos ejecutando la función "getCountryByApi"
+            return createCountries
         }else{
             return countDb; //Si ya existen datos en la BD, los retorno.
         }

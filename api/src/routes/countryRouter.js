@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const{ getAllCountries, getCountry, findCountry } = require('../controllers/countryControllers')
+const{ getAllCountries, getCountryId, findCountry } = require('../controllers/countryControllers')
 
 const countryRouter = Router();
 
@@ -15,17 +15,17 @@ countryRouter.get('/', async (req, res) => {
         res.status(SECCESS).json(countries) 
 
     } catch (error) {
-        res.status(ERR).json({error: error.message})
+        res.status(ERR).send(error.message)
     }
 })
 
 countryRouter.get('/:id', async (req, res) => {
     try {
         let id  = req.params.id.toUpperCase()
-        let country = await getCountry(id)
+        let country = await getCountryId(id)
         res.status(SECCESS).json(country)
     } catch (error) {
-        res.status(ERR).json({error: error.message})
+        res.status(ERR).send(error.message)
         
     }
 })

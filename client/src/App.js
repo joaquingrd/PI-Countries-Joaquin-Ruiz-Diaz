@@ -1,10 +1,15 @@
-import './App.css';
+import "./App.css";
+import React from "react";
+import { BrowserRouter, Route } from "react-router-dom";
+import LandingPage from "./components/1-LandingPage/LandingPage";
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Countries</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Route exact path="/" component={LandingPage} />
+      </div>
+    </BrowserRouter>
   );
 }
 

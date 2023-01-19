@@ -10,7 +10,7 @@ const getAllCountries = async () => {
     return allCountries;
 }
 
-const getCountry = async (id) => {
+const getCountryId = async (id) => {
     const countryId = await Country.findByPk(id, {
         include: TouristActivity
     })
@@ -35,6 +35,6 @@ const findCountry = async (name) => {
 
 module.exports = {
     getAllCountries,
-    getCountry,
+    getCountryId,
     findCountry
 }
