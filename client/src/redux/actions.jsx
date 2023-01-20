@@ -1,66 +1,97 @@
 import axios from "axios";
 
-export const GET_CHARACTERS = "GET_CHARACTERS";
-export const DELETE_CHARACTER = "DELETE_CHARACTER";
-export const CREATE_CHARACTER = "CREATE_CHARACTER";
+export const GET_COUNTRIES = "GET_COUNTRIES";
+export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_DETAILS = "GET_DETAILS";
+export const GET_ACTIVITY = "GET_ACTIVITY";
 
-export const getCharacters = () => {
+export const RESET = "RESET";
+export const RESET_COUNTRIES = "RESET_COUNTRIES";
+
+export const SORT_BY_NAME = "SORT_BY_NAME";
+export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
+export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
+export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
+
+export const getCountries = () => {
   return function (dispatch) {
-    fetch("https://rickandmortyapi.com/api/character")
+    fetch("http://localhost:3001/countries")
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: GET_CHARACTERS, payload: data.results })
-      );
+      .then((data) => dispatch({ type: GET_COUNTRIES, payload: data.results }));
   };
 };
 
-export const deleteCharacter = (id) => {
-  return {
-    type: DELETE_CHARACTER,
-    payload: id,
-  };
-};
-
-export const createCharacter = (character) => {
-  return {
-    type: CREATE_CHARACTER,
-    payload: character,
-  };
-};
-
-export const searchCharacters = () => {
+export const getCountryName = (name) => {
   return function (dispatch) {
-    fetch("https://rickandmortyapi.com/api/character")
+    fetch(`http://localhost:3001/countries?name=${name}`)
       .then((response) => response.json())
-      .then((data) =>
-        dispatch({ type: GET_CHARACTERS, payload: data.results })
-      );
+      .then((data) => dispatch({ type: GET_BY_NAME, payload: data.results }));
+    // .catch(console.log(error));
   };
 };
 
-// export const getDetails = (id) => {
-//   return function (dispatch) {
-//     fetch(`https://rickandmortyapi.com/api/character/${id}`)
-//       .then((response) => response.json())
-//       .then((data) =>
-//         dispatch({ type: GET_DETAILS, payload: data })
-//       );
-//   };
-// };
-export function getDetails(id) {
+export const getDetails = (id) => {
+  return function (dispatch) {
+    fetch(`http://localhost:3001/countries?name=${id}`)
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: GET_DETAILS, payload: data.results }));
+    // .catch(error);
+  };
+};
+
+export const getActivity = () => {
+  return function (dispatch) {
+    fetch("http://localhost:3001/activities")
+      .then((response) => response.json())
+      .then((data) => dispatch({ type: GET_ACTIVITY, payload: data.results }));
+    // .catch(error);
+  };
+};
+
+export function resetState() {
+  return {
+    type: RESET,
+  };
+}
+
+export function resetCountries() {
+  return {
+    type: RESET_COUNTRIES,
+  };
+}
+
+export const sortByName = (payload) => {
+  return {
+    type: SORT_BY_NAME,
+    payload: payload,
+  };
+};
+
+export const sortByPopulation = (payload) => {
+  return {
+    type: SORT_BY_POPULATION,
+    payload: payload,
+  };
+};
+
+export const filterByContinent = (payload) => {
+  return {
+    type: FILTER_BY_CONTINENT,
+    payload: payload,
+  };
+};
+
+export const filterByActivity = (payload) => {
+  return {
+    type: FILTER_BY_ACTIVITY,
+    payload: payload,
+  };
+};
+
+//utilizo axios para utilizar el metodo post.
+export function postActivities(payload) {
   return async function (dispatch) {
-    try {
-      var response = await axios.get(
-        `https://rickandmortyapi.com/api/character/${id}`
-      );
-      console.log(response.data);
-      return dispatch({
-        type: GET_DETAILS,
-        payload: response.data,
-      });
-    } catch (error) {
-      window.alert("error");
-    }
+    const datos = await axios.post("http://localhost:3001/activities", payload);
+    return datos;
   };
 }
