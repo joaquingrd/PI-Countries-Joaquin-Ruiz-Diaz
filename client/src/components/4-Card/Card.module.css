@@ -1,0 +1,41 @@
+.divCard {
+  width: 230px;
+  display: flex;
+  margin: auto;
+  margin-bottom: 20px;
+  flex-direction: column;
+  border: solid white 7px;
+  position: relative;
+  box-shadow: 0px 0px 10px 5px rgb(10, 10, 10);
+  border-radius: 0px 0px 0px 0px;
+}
+
+.img {
+  border-radius: 6px 6px 0px 0px;
+}
+
+.boton {
+  background-color: white;
+  font-family: monospace;
+  font-weight: 600;
+  color: black;
+  font-size: 15px;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+  transition: 0.3s;
+  border: none;
+  height: 40px;
+  text-transform: uppercase;
+}
+
+.boton:hover {
+  color: #111111ad;
+
+  font-size: 16px;
+}
+
+.link {
+  color: black;
+  text-decoration: none;
+}

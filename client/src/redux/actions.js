@@ -17,7 +17,7 @@ export const getCountries = () => {
   return function (dispatch) {
     fetch("http://localhost:3001/countries")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_COUNTRIES, payload: data.results }));
+      .then((data) => dispatch({ type: GET_COUNTRIES, payload: data }));
   };
 };
 
@@ -25,7 +25,7 @@ export const getCountryName = (name) => {
   return function (dispatch) {
     fetch(`http://localhost:3001/countries?name=${name}`)
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_BY_NAME, payload: data.results }));
+      .then((data) => dispatch({ type: GET_BY_NAME, payload: data }));
     // .catch(console.log(error));
   };
 };
@@ -34,7 +34,7 @@ export const getDetails = (id) => {
   return function (dispatch) {
     fetch(`http://localhost:3001/countries?name=${id}`)
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_DETAILS, payload: data.results }));
+      .then((data) => dispatch({ type: GET_DETAILS, payload: data }));
     // .catch(error);
   };
 };

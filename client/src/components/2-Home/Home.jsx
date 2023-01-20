@@ -1,13 +1,12 @@
-// import NavBar from "../NavBar/NavBar";
 import styles from "./Home.module.css";
-// import Cards from "../Cards/Cards.jsx";
+import Cards from "../5-Cards/Cards";
 
-const Home = () => {
+function Home() {
   return (
     <div className={styles.body}>
-      <h1>Estamos en el home</h1>
+      <Cards />
     </div>
   );
-};
+}
 
 export default Home;
