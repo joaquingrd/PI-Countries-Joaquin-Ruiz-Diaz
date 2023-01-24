@@ -16,13 +16,14 @@ class Cards extends React.Component {
   render() {
     return (
       <div className={styles.cards}>
-        {[...this.props.countries, ...this.props.allCountries].map(
+        {[...this.props.pageChars, ...this.props.allCountries].map(
           (countries) => {
             return (
               <Card
                 name={countries.name}
-                continents={countries.continents}
+                continents={countries.subregion}
                 flags={countries.flags}
+                population={countries.population}
                 key={countries.id}
                 id={countries.id}
               />
@@ -36,7 +37,7 @@ class Cards extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    countries: state.countries,
+    pageChars: state.pageChars,
     allCountries: state.allCountries,
   };
 };

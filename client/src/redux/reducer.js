@@ -3,6 +3,7 @@ import {
   GET_BY_NAME,
   GET_DETAILS,
   GET_ACTIVITY,
+  SET_PAGE_CHARACTER,
   RESET,
   RESET_COUNTRIES,
   SORT_BY_NAME,
@@ -12,6 +13,7 @@ import {
 } from "./actions";
 
 const inicialState = {
+  pageChars: [],
   countries: [],
   allCountries: [], //Es necesario hacer una copia de todos los paises para realizar los filtrados
   details: [],
@@ -44,6 +46,14 @@ const rootReducer = (state = inicialState, action) => {
       return {
         ...state,
         detail: action.payload,
+      };
+
+    case SET_PAGE_CHARACTER:
+      return {
+        ...state,
+        pageChars: [
+          ...state.countries.slice(action.payload.start, action.payload.end),
+        ],
       };
 
     case RESET:

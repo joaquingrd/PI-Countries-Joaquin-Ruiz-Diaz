@@ -5,6 +5,8 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_DETAILS = "GET_DETAILS";
 export const GET_ACTIVITY = "GET_ACTIVITY";
 
+export const SET_PAGE_CHARACTER = "SET_PAGE_CHARACTER";
+
 export const RESET = "RESET";
 export const RESET_COUNTRIES = "RESET_COUNTRIES";
 
@@ -45,6 +47,13 @@ export const getActivity = () => {
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_ACTIVITY, payload: data.results }));
     // .catch(error);
+  };
+};
+
+export const setPageCharacter = (start, end) => {
+  return {
+    type: SET_PAGE_CHARACTER,
+    payload: { start, end },
   };
 };
 
