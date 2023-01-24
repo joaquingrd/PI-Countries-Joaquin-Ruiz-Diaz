@@ -5,7 +5,7 @@ export const GET_BY_NAME = "GET_BY_NAME";
 export const GET_DETAILS = "GET_DETAILS";
 export const GET_ACTIVITY = "GET_ACTIVITY";
 
-export const SET_PAGE_CHARACTER = "SET_PAGE_CHARACTER";
+export const SET_PAGE_COUNTRIES = "SET_PAGE_COUNTRIES";
 
 export const RESET = "RESET";
 export const RESET_COUNTRIES = "RESET_COUNTRIES";
@@ -50,9 +50,9 @@ export const getActivity = () => {
   };
 };
 
-export const setPageCharacter = (start, end) => {
+export const setPageCountries = (start, end) => {
   return {
-    type: SET_PAGE_CHARACTER,
+    type: SET_PAGE_COUNTRIES,
     payload: { start, end },
   };
 };

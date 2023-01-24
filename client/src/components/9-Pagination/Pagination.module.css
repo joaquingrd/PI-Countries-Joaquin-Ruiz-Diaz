@@ -1,54 +1,44 @@
-.tablefilterinfo {
+.container {
   display: flex;
   justify-content: center;
   position: relative;
+  margin-top: 40px;
 }
 
-.dtpaginationul {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0;
-  padding-left: 0;
-}
-
-.dtpagination {
+.pagination {
   /* margin-top: -30px; */
   margin-bottom: 20px;
 }
 
-.dtpagination .dtitem {
+.pagination .items {
   display: inline-block;
 }
 
-.dtpagination .dtitem .dtlink {
+.pagination .items .diferents {
   padding: 6px 8px;
   min-width: 32px;
   min-height: 18px;
   border-radius: 8px;
-  background-color: rgba(149, 148, 134, 0.662);
+  background-color: rgba(255, 255, 255, 0);
   margin-bottom: 5px;
-  border: 1px solid rgb(149 148 134);
-  font-size: 12px;
+  border: 1px solid rgba(149, 148, 134, 0);
   font-weight: 700;
+  font-size: 17px;
+  font-family: monospace;
   color: #281a1a;
   display: inline-block;
   text-align: center;
   cursor: pointer;
 }
 
-.dtpagination .dtitem .dtlink:hover {
+.pagination .items .diferents:hover {
   background-color: rgb(88, 87, 73);
   color: whitesmoke;
 }
 
-/*   .dtpagination .dtitem:first-child .dtlink,
-    .dtpagination .dtitem:last-child .dtlink {
-      background-color: rgb(149 148 134 / 85%);
-    } */
-
-.active {
-  background-color: rgb(88, 87, 73);
-  color: whitesmoke;
+.current {
+  background-color: rgb(245, 245, 242);
+  color: rgb(7, 7, 7);
 
   padding: 6px 8px;
   min-width: 32px;
@@ -56,11 +46,35 @@
   border-radius: 8px;
 
   margin-bottom: 5px;
-  border: 1px solid rgb(149 148 134);
-  font-size: 12px;
+  border: 0px solid rgb(149 148 134);
   font-weight: 700;
+  font-size: 20px;
+  font-family: monospace;
+  letter-spacing: 1.5px;
 
   display: inline-block;
   text-align: center;
   cursor: pointer;
+}
+
+.arrow {
+  padding: 6px 8px;
+  min-width: 32px;
+  min-height: 18px;
+  border-radius: 8px;
+  background-color: rgba(90, 88, 88, 0);
+  margin-bottom: 5px;
+  border: 1px solid rgba(149, 148, 134, 0);
+  font-weight: 700;
+  font-size: 12px;
+  font-family: monospace;
+  color: #ffffff;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow:hover {
+  background-color: rgb(88, 87, 73);
+  color: whitesmoke;
 }

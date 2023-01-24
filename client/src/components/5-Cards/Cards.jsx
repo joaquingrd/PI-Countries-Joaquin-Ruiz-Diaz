@@ -16,7 +16,7 @@ class Cards extends React.Component {
   render() {
     return (
       <div className={styles.cards}>
-        {[...this.props.pageChars, ...this.props.allCountries].map(
+        {[...this.props.pageCountries, ...this.props.allCountries].map(
           (countries) => {
             return (
               <Card
@@ -37,7 +37,7 @@ class Cards extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    pageChars: state.pageChars,
+    pageCountries: state.pageCountries,
     allCountries: state.allCountries,
   };
 };
