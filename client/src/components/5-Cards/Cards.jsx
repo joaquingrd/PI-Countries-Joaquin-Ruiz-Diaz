@@ -16,20 +16,21 @@ class Cards extends React.Component {
   render() {
     return (
       <div className={styles.cards}>
-        {[...this.props.pageCountries, ...this.props.allCountries].map(
-          (countries) => {
-            return (
-              <Card
-                name={countries.name}
-                continents={countries.subregion}
-                flags={countries.flags}
-                population={countries.population}
-                key={countries.id}
-                id={countries.id}
-              />
-            );
-          }
-        )}
+        {[...this.props.pageCountries].map((countries) => {
+          return (
+            <Card
+              name={countries.name}
+              flags={countries.flags}
+              continents={countries.subregion}
+              capital={countries.capital}
+              subregion={countries.subregion}
+              area={countries.area}
+              population={countries.population}
+              key={countries.id}
+              id={countries.id}
+            />
+          );
+        })}
       </div>
     );
   }

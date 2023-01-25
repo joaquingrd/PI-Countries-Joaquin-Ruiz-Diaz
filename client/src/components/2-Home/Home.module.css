@@ -1,3 +1,9 @@
 .body {
   background-color: #7c7c7c;
 }
+.video {
+  position: fixed;
+  height: 150%;
+  width: 120%;
+  margin-top: -8px;
+}

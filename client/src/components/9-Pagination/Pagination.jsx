@@ -120,6 +120,7 @@ const Pagination = ({ countries, setPageCountries }) => {
 const mapStateToProps = (state) => {
   return {
     countries: state.countries,
+    allCountries: state.allCountries,
   };
 };
 const mapDispatchToProps = (dispatch) => {

@@ -14,11 +14,10 @@ import {
 
 const inicialState = {
   pageCountries: [],
-  countries: [],
   allCountries: [], //Es necesario hacer una copia de todos los paises para realizar los filtrados
+  countries: [],
   details: [],
   activities: [],
-  allActivities: [],
 };
 
 const rootReducer = (state = inicialState, action) => {
@@ -27,7 +26,7 @@ const rootReducer = (state = inicialState, action) => {
       return {
         ...state,
         countries: action.payload,
-        allcountries: action.payload,
+        allCountries: action.payload,
       };
 
     case GET_BY_NAME:
@@ -46,6 +45,7 @@ const rootReducer = (state = inicialState, action) => {
       return {
         ...state,
         detail: action.payload,
+        activities: action.payload,
       };
 
     case SET_PAGE_COUNTRIES:
@@ -107,7 +107,9 @@ const rootReducer = (state = inicialState, action) => {
       const continentFilter =
         action.payload === "All"
           ? allCountries
-          : allCountries.filter((event) => event.continents === action.payload);
+          : allCountries.filter(
+              (country) => country.continents === action.payload
+            );
       return {
         ...state,
         countries: continentFilter,
@@ -120,10 +122,10 @@ const rootReducer = (state = inicialState, action) => {
           ? allCountriesAct
           : allCountriesAct.filter(
               (country) =>
-                country.activities &&
-                country.activities
-                  .map((event) => event.name)
-                  .includes(action.payload) //
+                country.TouristActivities &&
+                country.TouristActivities.map(
+                  (activity) => activity.season
+                ).includes(action.payload) //
             );
 
       return {
