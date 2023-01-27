@@ -5,7 +5,7 @@ import styles from "./Pagination.module.css";
 
 const Pagination = ({ countries, setPageCountries }) => {
   const [country, Setcountry] = useState(countries);
-  const [countryPerPage] = useState(9);
+  const [countryPerPage] = useState(10);
   const [currentPage, SetCurrentPage] = useState(1);
 
   const onPageChangeEvent = (start, end) => {

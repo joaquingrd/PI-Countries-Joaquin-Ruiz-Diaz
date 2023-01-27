@@ -15,6 +15,8 @@ export const SORT_BY_POPULATION = "SORT_BY_POPULATION";
 export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 
+export const POST_ACTIVITY = "POST_ACTIVITY";
+
 export const getCountries = () => {
   return function (dispatch) {
     fetch("http://localhost:3001/countries")
@@ -27,8 +29,10 @@ export const getCountryName = (name) => {
   return function (dispatch) {
     fetch(`http://localhost:3001/countries?name=${name}`)
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_BY_NAME, payload: data }));
-    // .catch(console.log(error));
+      .then((data) => dispatch({ type: GET_BY_NAME, payload: data }))
+      .catch((error) => {
+        window.alert("Country not found!");
+      });
   };
 };
 
@@ -45,8 +49,10 @@ export const getActivity = () => {
   return function (dispatch) {
     fetch("http://localhost:3001/activities")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_ACTIVITY, payload: data.results }));
-    // .catch(error);
+      .then((data) => dispatch({ type: GET_ACTIVITY, payload: data }))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 };
 
@@ -100,7 +106,11 @@ export const filterByActivity = (payload) => {
 //utilizo axios para utilizar el metodo post.
 export function postActivities(payload) {
   return async function (dispatch) {
-    const datos = await axios.post("http://localhost:3001/activities", payload);
-    return datos;
+    const response = await axios.post(
+      "http://localhost:3001/activities",
+      payload
+    );
+    console.log(response);
+    return response;
   };
 }

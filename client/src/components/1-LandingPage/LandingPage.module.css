@@ -19,12 +19,13 @@
 
 .landingName {
   color: rgba(255, 201, 75, 1);
-  font-family: sans-serif;
+  font-family: monospace;
   font-weight: 400;
-  font-size: 30px;
   position: relative;
-  top: 60px;
-  margin-left: 70px;
+  top: 63px;
+  margin-left: 60px;
+  font-size: 40px;
+  letter-spacing: 5px;
 }
 
 .landingText {

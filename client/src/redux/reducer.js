@@ -4,12 +4,13 @@ import {
   GET_DETAILS,
   GET_ACTIVITY,
   SET_PAGE_COUNTRIES,
-  RESET,
-  RESET_COUNTRIES,
+  // RESET,
+  // RESET_COUNTRIES,
   SORT_BY_NAME,
   SORT_BY_POPULATION,
   FILTER_BY_CONTINENT,
   FILTER_BY_ACTIVITY,
+  POST_ACTIVITY,
 } from "./actions";
 
 const inicialState = {
@@ -18,34 +19,42 @@ const inicialState = {
   countries: [],
   details: [],
   activities: [],
+  filters: { activities: "All", continents: "All", name: "" },
 };
 
 const rootReducer = (state = inicialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES:
+      console.log("countries", action.payload);
       return {
         ...state,
-        countries: action.payload,
-        allCountries: action.payload,
+        countries: [...action.payload],
+        allCountries: [...action.payload],
       };
 
     case GET_BY_NAME:
       return {
         ...state,
-        countries: action.payload,
+        countries: [...action.payload],
       };
 
     case GET_DETAILS:
       return {
         ...state,
-        detail: action.payload,
+        detail: [...action.payload],
       };
 
     case GET_ACTIVITY:
+      console.log("activity", action.payload);
       return {
         ...state,
-        detail: action.payload,
-        activities: action.payload,
+        detail: [...action.payload],
+        activities: [...action.payload],
+      };
+
+    case POST_ACTIVITY:
+      return {
+        ...state,
       };
 
     case SET_PAGE_COUNTRIES:
@@ -56,26 +65,26 @@ const rootReducer = (state = inicialState, action) => {
         ],
       };
 
-    case RESET:
-      return {
-        ...state,
-        detail: [],
-      };
+    // case RESET:
+    //   return {
+    //     ...state,
+    //     detail: [],
+    //   };
 
-    case RESET_COUNTRIES:
-      return {
-        ...state,
-        countries: [],
-      };
+    // case RESET_COUNTRIES:
+    //   return {
+    //     ...state,
+    //     countries: [],
+    //   };
 
     case SORT_BY_NAME:
       const sortCountriesName =
         action.payload === "asc"
-          ? state.allCountries.sort((a, b) => a.name.localeCompare(b.name))
-          : state.allCountries.sort((a, b) => b.name.localeCompare(a.name));
+          ? state.countries.sort((a, b) => a.name.localeCompare(b.name))
+          : state.countries.sort((a, b) => b.name.localeCompare(a.name));
       return {
         ...state,
-        countries: sortCountriesName,
+        countries: [...sortCountriesName],
       };
 
     case SORT_BY_POPULATION:
@@ -99,10 +108,11 @@ const rootReducer = (state = inicialState, action) => {
             });
       return {
         ...state,
-        countries: filterPopulation,
+        countries: [...filterPopulation],
       };
 
     case FILTER_BY_CONTINENT:
+      state.filters.continents = action.payload; //actualiza el estado del filtro para utilizar en activity
       const allCountries = state.allCountries;
       const continentFilter =
         action.payload === "All"
@@ -112,25 +122,35 @@ const rootReducer = (state = inicialState, action) => {
             );
       return {
         ...state,
-        countries: continentFilter,
+        countries: [...continentFilter],
       };
 
     case FILTER_BY_ACTIVITY:
-      const allCountriesAct = state.allCountries;
-      const activitiesFilter =
-        action.payload === "All"
-          ? allCountriesAct
-          : allCountriesAct.filter(
-              (country) =>
-                country.TouristActivities &&
-                country.TouristActivities.map(
-                  (activity) => activity.season
-                ).includes(action.payload) //
-            );
+      state.filters.activities = action.payload; //actualiza el estado del filtro para utilizar en activity
+      const allCountriesActivities = state.allCountries;
+      let filteredActivities = [];
+      if (action.payload === "All") {
+        filteredActivities = allCountriesActivities.filter((country) =>
+          country.TouristActivities[0]?.name
+            ? country.TouristActivities[0]
+            : false
+        );
+      } else {
+        filteredActivities = allCountriesActivities.filter((event) =>
+          event.TouristActivities.some(
+            (country) => country.name === action.payload
+          )
+        );
+      }
+      if (state.filters.continents !== "All") {
+        filteredActivities = filteredActivities.filter(
+          (country) => country.continents === state.filters.continents
+        );
+      }
 
       return {
         ...state,
-        countries: activitiesFilter,
+        countries: [...filteredActivities],
       };
 
     default:

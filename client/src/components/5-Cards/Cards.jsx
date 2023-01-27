@@ -2,7 +2,7 @@ import React from "react";
 import Card from "../4-Card/Card";
 import styles from "./Cards.module.css";
 import { connect } from "react-redux";
-import { getCountries } from "../../redux/actions";
+import { getCountries, getActivity } from "../../redux/actions";
 
 class Cards extends React.Component {
   constructor(props) {
@@ -11,6 +11,7 @@ class Cards extends React.Component {
 
   componentDidMount() {
     this.props.getCountries();
+    this.props.getActivity();
   }
 
   render() {
@@ -46,6 +47,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     getCountries: () => dispatch(getCountries()),
+    getActivity: () => dispatch(getActivity()),
   };
 };
 

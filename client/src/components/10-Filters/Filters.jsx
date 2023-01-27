@@ -1,48 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   filterByContinent,
   filterByActivity,
   sortByName,
   sortByPopulation,
-  getElementById,
+  getActivity,
 } from "../../redux/actions";
 
 import styles from "./Filters.module.css";
 
 function Filter() {
   const dispatch = useDispatch();
-  const allCountries = useSelector((state) => state.countries);
+
   const activities = useSelector((state) => state.activities);
 
-  // const [, /* order */ setOrder] = useState("");
-
-  // function handleSort(event) {
-  //   event.preventDefault();
-  //   dispatch(sortByName(event.target.value));
-  //   setOrder(event.target.value);
-  //   if (
-  //     document
-  //       .getElementById("continentSelect")
-  //       .getElementsByTagName("option")[0].selected !== "selected"
-  //   ) {
-  //     document
-  //       .getElementById("continentSelect")
-  //       .getElementsByTagName("option")[0].selected = "selected";
-  //     document
-  //       .getElementById("populationSelect")
-  //       .getElementsByTagName("option")[0].selected = "selected";
-  //     document
-  //       .getElementById("activitynSelect")
-  //       .getElementsByTagName("option")[0].selected = "selected";
-  //   }
-  //   document
-  //     .getElementById("populationSelect")
-  //     .getElementsByTagName("option")[0].selected = "selected";
-  //   document
-  //     .getElementById("activitynSelect")
-  //     .getElementsByTagName("option")[0].selected = "selected";
-  // }
+  useEffect(() => {
+    if (!activities) dispatch(getActivity());
+  }, [activities, dispatch]);
 
   function handleFilterByContinent(event) {
     dispatch(filterByContinent(event.target.value));
@@ -52,57 +27,36 @@ function Filter() {
     dispatch(filterByActivity(event.target.value));
   }
 
-  // function handleFilterByActivity(event) {
-  //   event.preventDefault();
-  //   dispatch(filterByActivity(event.target.value));
-  //   document
-  //     .getElementById("nameSelect")
-  //     .getElementsByTagName("option")[0].selected = "selected";
-  //   document
-  //     .getElementById("continentSelect")
-  //     .getElementsByTagName("option")[0].selected = "selected";
-  //   document
-  //     .getElementById("populationSelect")
-  //     .getElementsByTagName("option")[0].selected = "selected";
-  // }
+  function handleSortByName(event) {
+    dispatch(sortByName(event.target.value));
+  }
 
-  // function populationOrder(event) {
-  //   event.preventDefault();
-  //   dispatch(sortByPopulation(event.target.value));
-  //   setOrder(event.target.value);
-  //   if (
-  //     document.getElementById("nameSelect").getElementsByTagName("option")[0]
-  //       .selected !== "selected"
-  //   ) {
-  //     document
-  //       .getElementById("nameSelect")
-  //       .getElementsByTagName("option")[0].selected = "selected";
-  //     document
-  //       .getElementById("activitynSelect")
-  //       .getElementsByTagName("option")[0].selected = "selected";
-  //   }
-  //   document
-  //     .getElementById("activitynSelect")
-  //     .getElementsByTagName("option")[0].selected = "selected";
-  // }
+  function handlesortByPopulation(event) {
+    dispatch(sortByPopulation(event.target.value));
+  }
 
   return (
     <div>
       <header>
         <div className={styles.nav}>
-          <div>
+          <div className={styles.container}>
             <select
-              className={styles.select}
-              // onChange={(event) => handleSort(event)}
+              className={styles.filters}
+              onChange={(event) => handleSortByName(event)}
             >
-              <option> Order by name </option>
+              {/* <option hidden selected>
+                Sort by name
+              </option> */}
               <option value="asc"> A-Z </option>
               <option value="desc"> Z-A </option>
             </select>
             <select
-              className={styles.select}
+              className={styles.filters}
               onChange={(event) => handleFilterByContinent(event)}
             >
+              {/* <option hidden selected>
+                Continents
+              </option> */}
               <option value="All">All Continents</option>
               <option value="Africa">Africa</option>
               <option value="North America">North America</option>
@@ -111,25 +65,30 @@ function Filter() {
               <option value="Europe">Europe</option>
               <option value="Oceania">Oceania</option>
             </select>
-
             <select
-              className={styles.select}
+              className={styles.filters}
               onChange={(event) => handleFilterActivity(event)}
             >
+              {/* <option hidden selected>
+                Activities
+              </option> */}
               <option value="All">All Activities</option>
-              <option value="Winter">Winter</option>
-              <option value="Spring">Spring</option>
-              <option value="Fall">Fall</option>
-              <option value="Summer">Summer</option>
+              {activities.map((act) => (
+                <option value={act.name} key={act.name}>
+                  {act.name}
+                </option>
+              ))}
             </select>
 
             <select
-              className={styles.select}
-              // onChange={(event) => populationOrder(event)}
+              className={styles.filters}
+              onChange={(event) => handlesortByPopulation(event)}
             >
-              <option> Order by population </option>
-              <option value="DESC"> Ascendent </option>
-              <option value="ASC"> Descendant </option>
+              {/* //   <option hidden selected>
+            //     Population Sort
+            //   </option> */}
+              <option value="asc">Larger</option>
+              <option value="desc">Smaller</option>
             </select>
           </div>
         </div>
