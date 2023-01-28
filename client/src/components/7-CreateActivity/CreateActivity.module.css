@@ -6,9 +6,8 @@
 }
 .video {
   position: fixed;
-  height: 150%;
+
   width: 100%;
-  margin-top: -8px;
 }
 .link {
   font-family: monospace;
@@ -23,8 +22,8 @@
   transition: 0.2s;
   position: relative;
   background-color: #db720f00;
-  margin-bottom: 330px;
-  margin-left: -245px;
+  margin-bottom: 297px;
+  margin-left: -263px;
 }
 
 .lin :hover {
@@ -161,17 +160,20 @@ label {
   background-color: rgba(255, 255, 255, 0.579);
   height: 20px;
   width: 55px;
-  border-radius: 10px;
+  border-radius: 5px;
   padding-left: 10px;
   display: inline-flex;
   justify-content: flex-start;
   font-family: monospace;
-  margin-top: -10px;
+  margin-top: -8px;
   font-size: 18px;
   font-weight: 700;
   align-items: center;
   letter-spacing: 2px;
   margin-left: 5px;
+}
+
+.count:hover {
   box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
   -webkit-box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
   -moz-box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
@@ -179,7 +181,7 @@ label {
 
 .button1 {
   background-color: rgba(53, 54, 54, 0);
-  border-radius: 10px 10px 10px 10px;
+  border-radius: 5px;
   height: 20px;
   width: 23px;
   border: none;
@@ -191,9 +193,6 @@ label {
 
 .button1:hover {
   cursor: pointer;
-  box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
-  -webkit-box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
-  -moz-box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
 }
 
 .button2 {
@@ -205,7 +204,7 @@ label {
   border-radius: 10px;
   padding-left: 4px;
   font-family: monospace;
-  margin-top: 32px;
+  margin-top: 40px;
   font-size: 22px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -217,6 +216,7 @@ label {
 
 .button2:hover {
   cursor: pointer;
+  background-color: #ffffff;
   box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
   -webkit-box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);
   -moz-box-shadow: 0px 0px 10px -0px rgb(0, 0, 0);

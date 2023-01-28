@@ -15,11 +15,26 @@ const Card = ({ name, flags, id, continents, population }) => {
       <img className={styles.img} src={flags} alt={name} />
 
       <button className={styles.boton}>
-        <Link to={`/details/${id}`} className={styles.link}>
+        <Link to={`/countries/${id}`} className={styles.link}>
           <div className={styles.info}>
-            <p className={styles.name}>{name}</p>
-            <br />
-            <p className={styles.continents}>{continents}</p>
+            <div className={styles.countries}>
+              <p className={styles.name}>
+                <div className={name.length > 23 ? styles.name2 : styles.name}>
+                  {name}
+                </div>
+              </p>
+            </div>
+
+            <p
+              className={
+                name.length > 28 || continents.length > 24
+                  ? styles.continent2
+                  : styles.continent
+              }
+            >
+              {/* {name.length > 40 ? "" : continents} */}
+              {continents}
+            </p>
           </div>
         </Link>
       </button>

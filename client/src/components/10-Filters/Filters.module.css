@@ -25,7 +25,6 @@
   box-shadow: 10px 10px 24px -6px rgb(0, 0, 0);
   -webkit-box-shadow: 10px 10px 24px -6px rgb(0, 0, 0);
   -moz-box-shadow: 10px 10px 24px -6px rgb(0, 0, 0);
-  cursor: pointer;
 }
 
 .container {
@@ -34,6 +33,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: 20px;
+  margin-left: -90px;
+  background-color: #94817000;
 }
 
 .population {

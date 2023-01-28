@@ -38,10 +38,12 @@ export const getCountryName = (name) => {
 
 export const getDetails = (id) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/countries?name=${id}`)
+    fetch(`http://localhost:3001/countries/${id}`)
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_DETAILS, payload: data }));
-    // .catch(error);
+      .then((data) => dispatch({ type: GET_DETAILS, payload: data }))
+      .catch((error) => {
+        console.log(error);
+      });
   };
 };
 

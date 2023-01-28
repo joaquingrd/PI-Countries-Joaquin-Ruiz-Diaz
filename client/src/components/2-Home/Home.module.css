@@ -3,9 +3,9 @@
 }
 .video {
   position: fixed;
-  height: 150%;
-  width: 120%;
-  margin-top: -8px;
+
+  width: 100%;
+  /* margin-top: -8px; */
 }
 
 .filter {

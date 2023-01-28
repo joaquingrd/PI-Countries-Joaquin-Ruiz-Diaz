@@ -6,13 +6,18 @@
   padding-left: 15px;
   font-size: 20px;
   font-family: monospace;
-  margin-left: 650px;
+  margin-left: 540px;
   margin-top: -4px;
   text-decoration: none;
   color: #f8f5f5;
   font-weight: 600;
   letter-spacing: 2px;
   border: none;
+  text-transform: capitalize;
+}
+
+.input::placeholder {
+  font-size: 15px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

@@ -1,0 +1,105 @@
+.body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.vid {
+  position: fixed;
+  width: 100%;
+}
+
+.country {
+  background-color: rgba(214, 211, 208, 0.753);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 300px;
+  padding: 10px;
+  margin-top: 100px;
+  box-shadow: 0 20px 30px rgba(0, 0, 0);
+  border-radius: 20px;
+}
+.flag {
+  height: 205px;
+  width: 245px;
+  margin-top: 45px;
+  margin-left: -100px;
+  border-radius: 5%;
+  box-shadow: 16px 17px 24px -6px rgb(0, 0, 0);
+  -webkit-box-shadow: 16px 17px 24px -6px rgb(0, 0, 0);
+  -moz-box-shadow: 16px 17px 24px -6px rgb(0, 0, 0);
+}
+
+.info {
+  text-align: center;
+  margin-top: 45px;
+  height: 185px;
+  width: 280px;
+  padding: 20px;
+  padding-top: 10px;
+}
+
+.name {
+  font-family: monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1f1d1d;
+  font-size: 36px;
+  letter-spacing: 5px;
+  min-height: 95px;
+  text-shadow: #1f1d1d;
+  min-height: 95px;
+  text-shadow: 0px 6px 3px #585857;
+}
+
+.nameL {
+  font-family: monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1f1d1d;
+  font-size: 24px;
+  letter-spacing: 5px;
+  min-height: 95px;
+  text-shadow: 0px 6px 3px #585857;
+  /* filter: drop-shadow(0px 5px 10px #000000); */
+}
+
+.dat {
+  font-family: monospace;
+  font-weight: 500;
+  color: #9b0404;
+  font-size: 20px;
+  letter-spacing: 2px;
+  text-align: justify;
+  position: fixed;
+}
+
+.null {
+  background-color: rgba(137, 43, 226, 0);
+  position: relative;
+  color: rgba(0, 0, 255, 0);
+}
+
+.countryact {
+  background-color: rgba(214, 211, 208, 0.753);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  height: 300px;
+  padding: 10px;
+  margin-top: 70px;
+
+  border-radius: 20px 20px 0px 0px;
+}
+
+.activities {
+  background-color: rgba(214, 211, 208, 0.753);
+  min-height: 170px;
+  position: relative;
+  box-shadow: 0 40px 30px rgba(0, 0, 0);
+  border-radius: 0px 0px 20px 20px;
+  flex-direction: row;
+  display: flex;
+}

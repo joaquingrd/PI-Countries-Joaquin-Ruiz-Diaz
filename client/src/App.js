@@ -5,7 +5,7 @@ import LandingPage from "./components/1-LandingPage/LandingPage";
 import Home from "./components/2-Home/Home";
 import About from "./components/6-About/About";
 import Create from "./components/7-CreateActivity/CreateActivity";
-import Detail from "./components/8-DetailCountry/DetailCountry";
+import Details from "./components/8-DetailCountry/DetailCountry";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         <Route exact path="/home" component={Home} />
         <Route exact path="/about" component={About} />
         <Route exact path="/create" component={Create} />
-        <Route exact path="/detail/:id" component={Detail} />
+        <Route exact path="/countries/:id" component={Details} />
       </div>
     </BrowserRouter>
   );

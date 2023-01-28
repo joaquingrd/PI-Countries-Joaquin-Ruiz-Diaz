@@ -22,7 +22,7 @@ class Cards extends React.Component {
             <Card
               name={countries.name}
               flags={countries.flags}
-              continents={countries.subregion}
+              continents={countries.continents}
               capital={countries.capital}
               subregion={countries.subregion}
               area={countries.area}

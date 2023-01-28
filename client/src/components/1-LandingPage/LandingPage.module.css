@@ -22,7 +22,7 @@
   font-family: monospace;
   font-weight: 400;
   position: relative;
-  top: 63px;
+  top: 185px;
   margin-left: 60px;
   font-size: 40px;
   letter-spacing: 5px;
@@ -37,11 +37,12 @@
 }
 
 .landingWrapper {
-  margin: 320px 0px 0px 60px;
+  margin: 220px 0px 0px 60px;
 }
 
 .landingTitle {
-  margin: 100px 0px 20px 0px;
+  margin: 100px 0px 0px 0px;
+
   font-family: sans-serif;
   font-weight: 700;
   font-size: 3.2em;

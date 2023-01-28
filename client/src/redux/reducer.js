@@ -41,14 +41,14 @@ const rootReducer = (state = inicialState, action) => {
     case GET_DETAILS:
       return {
         ...state,
-        detail: [...action.payload],
+        details: action.payload,
       };
 
     case GET_ACTIVITY:
       console.log("activity", action.payload);
       return {
         ...state,
-        detail: [...action.payload],
+
         activities: [...action.payload],
       };
 
