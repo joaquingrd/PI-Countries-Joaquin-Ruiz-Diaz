@@ -19,7 +19,7 @@ const inicialState = {
   countries: [],
   details: [],
   activities: [],
-  filters: { activities: "All", continents: "All", name: "" },
+  filters: { activities: "All", continents: "All" },
 };
 
 const rootReducer = (state = inicialState, action) => {

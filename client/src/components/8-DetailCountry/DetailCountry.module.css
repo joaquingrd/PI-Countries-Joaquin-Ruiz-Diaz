@@ -8,6 +8,23 @@
   width: 100%;
 }
 
+.link {
+  font-family: monospace;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #c0bdbd;
+  font-size: 28px;
+  letter-spacing: 5px;
+  position: absolute;
+  display: inline-block;
+  transition: 0.2s;
+  position: absolute;
+  background-color: #db720f00;
+  margin-bottom: 445px;
+  margin-left: -383px;
+}
+
 .country {
   background-color: rgba(214, 211, 208, 0.753);
   position: relative;
@@ -72,7 +89,6 @@
   font-size: 20px;
   letter-spacing: 2px;
   text-align: justify;
-  position: fixed;
 }
 
 .null {
@@ -87,7 +103,7 @@
   display: flex;
   justify-content: space-between;
   width: 500px;
-  height: 300px;
+  height: 280px;
   padding: 10px;
   margin-top: 70px;
 
@@ -100,6 +116,109 @@
   position: relative;
   box-shadow: 0 40px 30px rgba(0, 0, 0);
   border-radius: 0px 0px 20px 20px;
-  flex-direction: row;
+  /* flex-direction: row;
+  display: flex; */
+}
+.act {
+  background-color: rgba(0, 255, 255, 0);
+  min-height: 170px;
+}
+
+.titleact {
+  font-family: monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #1f1d1d;
+  font-size: 20px;
+  letter-spacing: 5px;
+  text-shadow: #1f1d1d;
+  text-shadow: 0px 2px 1px #585857;
+  margin-left: 145px;
+}
+
+.namesactivities {
+  background-color: #fafa0800;
+  font-family: monospace;
+  font-weight: 900;
+  color: #9b0404;
+  font-size: 14px;
+  letter-spacing: 2px;
   display: flex;
+  justify-content: space-between;
+  width: 515px;
+  height: 25px;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+.namesactivitiesNull {
+  background-color: #f5f50700;
+  color: #9b040400;
+  font-size: 0px;
+}
+.nact {
+  background-color: #b1b11b00;
+  width: 224px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.touristactivities {
+  width: 520px;
+  margin-left: 0px;
+  padding: 0px;
+  display: flex;
+  background-color: #9b040400;
+}
+.actname {
+  background-color: rgba(13, 209, 13, 0);
+  width: 224px;
+  margin-left: 5px;
+  text-transform: capitalize;
+  font-family: monospace;
+  font-weight: 900;
+  color: #1f1d1d;
+  font-size: 18px;
+  text-align: ce;
+}
+
+.actsea {
+  width: 85px;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 900;
+  color: #9b0404;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+.actdur {
+  width: 90px;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 900;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 2px;
+  background-color: #58585777;
+}
+
+.actdiff {
+  width: 115px;
+  text-align: center;
+  font-family: monospace;
+  font-weight: 900;
+  color: #050505;
+  font-size: 14px;
+  letter-spacing: 2px;
+  background-color: #58585777;
+}
+
+.lin {
+  min-height: 20px;
+  padding: 0px;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+.lian {
+  padding: 0%;
+  min-height: 25px;
 }

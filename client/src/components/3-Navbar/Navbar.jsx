@@ -7,7 +7,7 @@ function NavBar() {
     <div className={styles.body}>
       <div className={styles.nav}>
         <nav>
-          <Link to={""}> HOME </Link>
+          <Link to={"/"}> LANDING </Link>
           <Link to={"/create"}> CREATE </Link>
           <Searchbar />
         </nav>

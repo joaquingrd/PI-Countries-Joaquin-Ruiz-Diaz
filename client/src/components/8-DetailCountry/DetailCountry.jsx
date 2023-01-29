@@ -23,6 +23,11 @@ function Details(props) {
       <video autoPlay muted loop className={styles.vid}>
         <source src={detail} type="video/mp4"></source>
       </video>
+      <div className={styles.link}>
+        <Link to="/home">
+          <p className={styles.link}>Back</p>
+        </Link>
+      </div>
       {loading ? (
         <div>
           <div
@@ -70,22 +75,62 @@ function Details(props) {
                 : styles.null
             }
           >
-            <p>Actividades Turisticas</p>
-            {countryDetail.TouristActivities?.map((TouristActivities) => (
-              <p className={styles.nameact}>{TouristActivities.name}</p>
-            ))}
-            <p className={styles.subtitle}>Season</p>
-            {countryDetail.TouristActivities?.map((TouristActivities) => (
-              <p>{TouristActivities.season}</p>
-            ))}
-            <p className={styles.subtitle}>Duration</p>
-            {countryDetail.TouristActivities?.map((TouristActivities) => (
-              <p>{TouristActivities.duration}</p>
-            ))}
-            <p className={styles.subtitle}>Season</p>
-            {countryDetail.TouristActivities?.map((TouristActivities) => (
-              <p> {TouristActivities.difficulty}</p>
-            ))}
+            <p
+              className={
+                countryDetail.TouristActivities.length > 0
+                  ? styles.titleact
+                  : styles.null
+              }
+            >
+              Turist Activities
+            </p>
+            <div className={styles.act}>
+              <div
+                className={
+                  countryDetail.TouristActivities.length > 0
+                    ? styles.namesactivities
+                    : styles.namesactivitiesNull
+                }
+              >
+                <p className={styles.nact}>Activitie</p>
+                <p>Difficulty |</p>
+                <p>Season |</p>
+                <p>Duration</p>
+              </div>
+              <div className={styles.touristactivities}>
+                <div className={styles.actname}>
+                  {countryDetail.TouristActivities?.map((TouristActivities) => (
+                    <div className={styles.lin}>
+                      <a className={styles.nameact}>{TouristActivities.name}</a>
+                    </div>
+                  ))}
+                </div>
+
+                <div className={styles.actdiff}>
+                  {countryDetail.TouristActivities?.map((TouristActivities) => (
+                    <div className={styles.lian}>
+                      <p>Level - {TouristActivities.difficulty}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className={styles.actsea}>
+                  {countryDetail.TouristActivities?.map((TouristActivities) => (
+                    <div className={styles.lian}>
+                      <p>{TouristActivities.season}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className={styles.actdur}>
+                  {countryDetail.TouristActivities?.map((TouristActivities) => (
+                    <div className={styles.lian}>
+                      <p>{TouristActivities.duration}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       ) : (

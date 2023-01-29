@@ -6,7 +6,6 @@
 }
 .video {
   position: fixed;
-
   width: 100%;
 }
 .link {
@@ -93,6 +92,18 @@ label {
   margin-left: 290px;
   font-size: 15px;
 }
+.err12 {
+  position: absolute;
+  color: rgb(243, 234, 234);
+  background-color: rgb(129, 7, 7);
+  border-radius: 5px;
+  margin-top: -25px;
+  margin-left: 444px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
+}
+
 .err2 {
   position: absolute;
   color: rgb(167, 156, 156);
@@ -107,6 +118,17 @@ label {
   margin-left: 290px;
   font-size: 15px;
 }
+/* .err32 {
+  position: absolute;
+  color: rgb(243, 234, 234);
+  background-color: rgb(236, 42, 42);
+  border-radius: 5px;
+  margin-top: -39px;
+  margin-left: 444px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 700;
+} */
 
 /* position: absolute;
   width: 350px;

@@ -10,6 +10,8 @@ export function validate(input) {
 
   if (!input.name) {
     error.name = "Required";
+  } else if (input.name.length > 20) {
+    error.name = "Only 20 letters";
   } else if (
     !/^[a-zA-Z\s]*$/.test(input.name) ||
     typeof input.name !== "string"
@@ -18,9 +20,10 @@ export function validate(input) {
   }
 
   if (!input.difficulty) {
-    error.difficulty = "Required";
-  } else if (input.difficulty < 1 || input.difficulty > 5)
-    error.difficulty = "Between 1 and 5";
+    error.difficulty = "Select";
+  }
+  // else if (input.difficulty < 1 || input.difficulty > 5)
+  //   error.difficulty = "Between 1 and 5";
 
   if (!input.duration) {
     error.duration = "Required";
@@ -28,11 +31,7 @@ export function validate(input) {
     error.duration = "Between 1 and 24";
 
   if (!input.season) {
-    error.season = "Select a season";
-  }
-
-  if (!input.countryId) {
-    error.countryId = "Select a Country";
+    error.season = "Select";
   }
 
   return error;
@@ -146,24 +145,18 @@ const Create = () => {
                   name="name"
                   onChange={(event) => handleChange(event)}
                 />
-                <div className={styles.err1}>
+                <div
+                  className={
+                    error.name === "Only 20 letters" ||
+                    error.name === "Only letters"
+                      ? styles.err12
+                      : styles.err1
+                  }
+                >
                   {error.name && <a>{error.name}</a>}
                 </div>
               </div>
-              <div>
-                <label>DIFFICULTY:</label>
-                <br />
-                <input
-                  className={styles.inp}
-                  type="number"
-                  value={input.difficulty}
-                  name="difficulty"
-                  onChange={(event) => handleChange(event)}
-                />
-                <div className={styles.err2}>
-                  {error.difficulty && <a>{error.difficulty}</a>}
-                </div>
-              </div>
+
               <div>
                 <label>DURATION</label>
                 <br />
@@ -174,10 +167,50 @@ const Create = () => {
                   name="duration"
                   onChange={(event) => handleChange(event)}
                 />
-                <div className={styles.err3}>
+                <div
+                  className={
+                    error.duration === "Between 1 and 24"
+                      ? styles.err12
+                      : styles.err3
+                  }
+                >
                   {error.duration && <a>{error.duration}</a>}
                 </div>
               </div>
+
+              <div>
+                <br />
+                <select
+                  className={styles.inp}
+                  type="number"
+                  value={input.difficulty}
+                  name="difficulty"
+                  onChange={(event) => handleChange(event)}
+                >
+                  <option hidden selected>
+                    Difficulty
+                  </option>
+                  <option value="1" name="1">
+                    1
+                  </option>
+                  <option value="2" name="2">
+                    2
+                  </option>
+                  <option value="3" name="3">
+                    3
+                  </option>
+                  <option value="4" name="4">
+                    4
+                  </option>
+                  <option value="5" name="5">
+                    5
+                  </option>
+                </select>
+                <div className={styles.err12}>
+                  {error.difficulty && <a>{error.difficulty}</a>}
+                </div>
+              </div>
+
               <div>
                 <br />
                 <div>
@@ -206,8 +239,8 @@ const Create = () => {
                     </option>
                   </select>
                 </div>
-                <div className={styles.err3}>
-                  {error.temporada && <a>{error.temporada}</a>}
+                <div className={styles.err12}>
+                  {error.season && <a>{error.season}</a>}
                 </div>
               </div>
               <div>
@@ -225,9 +258,6 @@ const Create = () => {
                     </option>
                   ))}
                 </select>
-                <div className={styles.err}>
-                  {error.countryId && <a>{error.countryId}</a>}
-                </div>
               </div>
               <br />
             </div>
