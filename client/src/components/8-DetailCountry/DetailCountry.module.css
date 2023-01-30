@@ -95,6 +95,7 @@
   background-color: rgba(137, 43, 226, 0);
   position: relative;
   color: rgba(0, 0, 255, 0);
+  font-size: 0px;
 }
 
 .countryact {
@@ -151,7 +152,7 @@
   margin-right: 5px;
 }
 .namesactivitiesNull {
-  background-color: #f5f50700;
+  background-color: #f5f507;
   color: #9b040400;
   font-size: 0px;
 }
@@ -160,6 +161,10 @@
   width: 224px;
   margin-left: 5px;
   font-size: 16px;
+}
+
+.nactNull {
+  font-size: 0px;
 }
 
 .touristactivities {

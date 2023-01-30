@@ -11,6 +11,7 @@ import {
   FILTER_BY_CONTINENT,
   FILTER_BY_ACTIVITY,
   POST_ACTIVITY,
+  LOADER,
 } from "./actions";
 
 const inicialState = {

@@ -17,6 +17,8 @@ export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 
 export const POST_ACTIVITY = "POST_ACTIVITY";
 
+export const LOADER = "LOADER";
+
 export const getCountries = () => {
   return function (dispatch) {
     fetch("http://localhost:3001/countries")

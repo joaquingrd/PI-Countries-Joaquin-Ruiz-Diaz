@@ -9,6 +9,7 @@ function NavBar() {
         <nav>
           <Link to={"/"}> LANDING </Link>
           <Link to={"/create"}> CREATE </Link>
+          <Link to={"/about"}> ABOUT </Link>
           <Searchbar />
         </nav>
         {/* <Link to={""} className={styles.invisible}></Link> */}
