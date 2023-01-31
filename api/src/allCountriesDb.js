@@ -31,7 +31,7 @@ const getCountryByApi = async () => {
     });
     return getInfo;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 };
 const countryDataBase = async () => {
@@ -46,7 +46,7 @@ const countryDataBase = async () => {
       return countDb; //Si ya existen datos en la BD, los retorno.
     }
   } catch (error) {
-    console.log(error.message);
+    // console.log(error.message);
   }
 };
 

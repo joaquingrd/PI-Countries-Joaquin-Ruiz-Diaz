@@ -17,7 +17,7 @@ function Details(props) {
     dispatch(getDetails(id));
   }, [dispatch, id]);
 
-  console.log(countryDetail);
+  // console.log(countryDetail);
 
   return (
     <div className={styles.body}>

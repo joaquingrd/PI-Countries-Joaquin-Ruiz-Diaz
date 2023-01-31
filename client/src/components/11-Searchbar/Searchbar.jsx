@@ -11,6 +11,12 @@ const Searchbar = () => {
     setName(event.target.value);
   }
 
+  function handleKeyDown(event) {
+    if (event.keyCode === 13) {
+      handleSubmit(event);
+    }
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
     dispatch(getCountryName(name));
@@ -28,6 +34,7 @@ const Searchbar = () => {
         type="text"
         placeholder="Search..."
         onChange={(event) => handleChange(event)}
+        onKeyDown={handleKeyDown}
       />
       <button
         className={styles.boton}
