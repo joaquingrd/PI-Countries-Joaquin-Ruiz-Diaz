@@ -1,12 +1,15 @@
 const axios = require("axios");
 const { Country } = require("./db");
 
+require("dotenv").config();
+const { URL_PATH_API } = process.env;
+
 //Necesito pedir la información de la API y guardarla con el metodo BulkCreate en la Base de Datos
 //para trabajar directamente desde ahí y no desde la API
 
 const getCountryByApi = async () => {
   try {
-    const response = await axios.get("https://restcountries.com/v3/all"); //solicito los paises desde la API
+    const response = await axios.get(URL_PATH_API); //solicito los paises desde la API
     const getInfo = await response.data.map((country) => {
       //Selecciono de la respuesta, solo los countryos que preciso
       return {

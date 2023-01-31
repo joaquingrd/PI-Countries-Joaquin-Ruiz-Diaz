@@ -17,17 +17,20 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-const server = require('./src/app.js');
-const { conn } = require('./src/db.js');
-const { countryDataBase } = require('./src/allCountriesDb');
-const PORT = 3001
-
+const server = require("./src/app.js");
+const { conn } = require("./src/db.js");
+const { countryDataBase } = require("./src/allCountriesDb");
+require("dotenv").config();
+const { PORT } = process.env;
 
 // Syncing all the models at once.
-conn.sync({ force : true }).then(() => { //alter true - actualiza las tablas de BDD en base a los modelos
-  server.listen(PORT, async () => {
-    console.log('listening at port', PORT); // eslint-disable-line no-console
-    await countryDataBase();
-  });
-})
-.catch(err=> console.log(err.message));
+conn
+  .sync({ force: true })
+  .then(() => {
+    //alter true - actualiza las tablas de BDD en base a los modelos
+    server.listen(PORT, async () => {
+      console.log("listening at port", PORT); // eslint-disable-line no-console
+      await countryDataBase();
+    });
+  })
+  .catch((err) => console.log(err.message));
