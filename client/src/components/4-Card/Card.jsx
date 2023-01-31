@@ -24,7 +24,6 @@ const Card = ({ name, flags, id, continents }) => {
                   : styles.continent
               }
             >
-              {/* {name.length > 40 ? "" : continents} */}
               {continents}
             </p>
           </div>

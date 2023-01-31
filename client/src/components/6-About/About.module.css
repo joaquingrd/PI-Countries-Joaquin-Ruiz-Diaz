@@ -1,3 +1,7 @@
+.body {
+  background-color: rgb(247, 246, 246);
+}
+
 .vid {
   position: fixed;
   width: 100%;
@@ -121,4 +125,15 @@
 h3 {
   margin-top: 10px;
   font-weight: 300;
+}
+
+.loader {
+  margin-left: 300px;
+}
+
+.loader1 {
+  margin-top: -155px;
+  margin-left: 650px;
+  position: absolute;
+  color: rgb(23, 23, 126);
 }

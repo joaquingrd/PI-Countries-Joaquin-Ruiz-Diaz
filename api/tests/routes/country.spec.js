@@ -1,24 +1,23 @@
-/* eslint-disable import/no-extraneous-dependencies */
-const { expect } = require('chai');
-const session = require('supertest-session');
-const app = require('../../src/app.js');
-const { Country, conn } = require('../../src/db.js');
+const request = require("supertest");
+const app = require("../../src/app");
+const { expect } = require("chai");
 
-const agent = session(app);
-const country = {
-  name: 'Argentina',
-};
+describe("GET /dogs", () => {
+  it("Should return all countries", async () => {
+    const response = await request(app).get("/countries");
+    expect(response.statusCode).to.equal(200);
+    expect(response.body).to.be.instanceof(Array);
+  });
 
-describe('Country routes', () => {
-  before(() => conn.authenticate()
-  .catch((err) => {
-    console.error('Unable to connect to the database:', err);
-  }));
-  beforeEach(() => Country.sync({ force: true })
-    .then(() => Country.create(pokemon)));
-  describe('GET /countries', () => {
-    it('should get 200', () =>
-      agent.get('/countries').expect(200)
-    );
+  it("Should return a specific country by name", async () => {
+    const response = await request(app).get("/countries?name=argentina");
+    expect(response.statusCode).to.equal(200);
+    expect(response.body).to.be.instanceof(Array);
+    expect(response.body[0].name.toLowerCase()).to.contain("argentina");
+  });
+
+  it("Should return an error if the country is not found.", async () => {
+    const response = await request(app).get("/dogs?name=sarasa");
+    expect(response.statusCode).to.equal(404);
   });
 });

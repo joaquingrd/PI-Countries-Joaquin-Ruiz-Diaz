@@ -23,7 +23,7 @@ module.exports = (sequelize) => {
       },
       duration: {
         type: DataTypes.INTEGER,
-        allowNull: true,
+        defaultValue: "1",
       },
       season: {
         type: DataTypes.ENUM({

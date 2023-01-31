@@ -167,6 +167,7 @@ const Create = () => {
                 <input
                   className={styles.inp}
                   value={input.duration}
+                  type="text"
                   name="duration"
                   onChange={(event) => handleChange(event)}
                 />
@@ -220,6 +221,8 @@ const Create = () => {
                 <div>
                   <select
                     className={styles.inp}
+                    name="season"
+                    type="number"
                     onChange={(event) => handleCheck(event)}
                   >
                     <br />
