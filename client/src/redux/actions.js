@@ -1,5 +1,6 @@
 import axios from "axios";
 const { REACT_APP_URL_PATH_API } = process.env;
+console.log("******", REACT_APP_URL_PATH_API, process.env);
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_BY_NAME = "GET_BY_NAME";
@@ -17,8 +18,6 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 
 export const POST_ACTIVITY = "POST_ACTIVITY";
-
-export const LOADER = "LOADER";
 
 export const getCountries = () => {
   console.log(`${REACT_APP_URL_PATH_API}/countries`);
