@@ -1,5 +1,5 @@
 import styles from "./Home.module.css";
-import landing from "../../images/landing.mp4";
+import videolanding from "../../images/videolanding.mp4";
 import loader from "../../images/loading.gif";
 import Cards from "../5-Cards/Cards";
 import NavBar from "../3-Navbar/Navbar";
@@ -19,7 +19,7 @@ function Home() {
       {loading ? (
         <>
           <video autoPlay muted loop className={styles.video}>
-            <source src={landing} type="video/mp4"></source>
+            <source src={videolanding} type="video/mp4"></source>
           </video>
           <div className={styles.filter}>
             <Filter />

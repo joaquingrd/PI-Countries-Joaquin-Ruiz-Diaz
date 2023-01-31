@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./LandingPage.module.css";
-import landing from "../../images/landing.mp4";
+import videolanding from "../../images/videolanding.mp4";
 
 const LandingPage = () => {
   return (
     <div className={styles.landing}>
       <video autoPlay muted loop className={styles.video}>
-        <source src={landing} type="video/mp4"></source>
+        <source src={videolanding} type="video/mp4"></source>
       </video>
 
       <div className={styles.landingText}>
