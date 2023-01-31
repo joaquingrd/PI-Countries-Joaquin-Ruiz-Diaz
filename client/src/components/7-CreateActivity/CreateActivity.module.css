@@ -94,6 +94,7 @@ label {
 }
 .err12 {
   position: absolute;
+  min-width: 60px;
   color: rgb(243, 234, 234);
   background-color: rgb(129, 7, 7);
   border-radius: 5px;

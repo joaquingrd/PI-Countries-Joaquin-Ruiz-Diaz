@@ -17,7 +17,7 @@ function Filter() {
 
   useEffect(() => {
     if (!activities) dispatch(getActivity());
-  }, [activities, dispatch]);
+  }, [activities, useSelector, dispatch]);
 
   function handleFilterByContinent(event) {
     dispatch(filterByContinent(event.target.value));

@@ -112,20 +112,6 @@ const rootReducer = (state = inicialState, action) => {
         countries: [...filterPopulation],
       };
 
-    case FILTER_BY_CONTINENT:
-      state.filters.continents = action.payload; //actualiza el estado del filtro para utilizar en activity
-      const allCountries = state.allCountries;
-      const continentFilter =
-        action.payload === "All"
-          ? allCountries
-          : allCountries.filter(
-              (country) => country.continents === action.payload
-            );
-      return {
-        ...state,
-        countries: [...continentFilter],
-      };
-
     case FILTER_BY_ACTIVITY:
       state.filters.activities = action.payload; //actualiza el estado del filtro para utilizar en activity
       const allCountriesActivities = state.allCountries;
@@ -152,6 +138,27 @@ const rootReducer = (state = inicialState, action) => {
       return {
         ...state,
         countries: [...filteredActivities],
+      };
+
+    case FILTER_BY_CONTINENT:
+      state.filters.continents = action.payload; //actualiza el estado del filtro para utilizar en activity
+      let filteredContinents = state.allCountries;
+      if (state.filters.activities !== "All") {
+        filteredContinents = filteredContinents.filter((event) =>
+          event.TouristActivities.some(
+            (country) => country.name === state.filters.activities
+          )
+        );
+      }
+      if (action.payload !== "All") {
+        filteredContinents = filteredContinents.filter(
+          (country) => country.continents === action.payload
+        );
+      }
+
+      return {
+        ...state,
+        countries: [...filteredContinents],
       };
 
     default:

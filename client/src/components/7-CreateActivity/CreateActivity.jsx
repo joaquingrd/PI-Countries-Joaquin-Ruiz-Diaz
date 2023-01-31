@@ -8,39 +8,30 @@ import styles from "./CreateActivity.module.css";
 export function validate(input) {
   let error = {};
 
-  if (!input.name) {
-    error.name = "Required";
-  } else if (input.name.length > 20) {
-    error.name = "Only 20 letters";
-  } else if (
-    !/^[a-zA-Z\s]*$/.test(input.name) ||
-    typeof input.name !== "string"
-  ) {
+  if (!input.name) error.name = "Required";
+  else if (input.name.length > 20) error.name = "Only 20 letters";
+  else if (!/^[a-zA-Z\s]*$/.test(input.name) || typeof input.name !== "string")
     error.name = "Only letters";
-  }
+  if (namesActivities[input.name]) error.name = "Name in use";
 
-  if (!input.difficulty) {
-    error.difficulty = "Select";
-  }
-  // else if (input.difficulty < 1 || input.difficulty > 5)
-  //   error.difficulty = "Between 1 and 5";
+  if (!input.difficulty) error.difficulty = "Select";
 
-  if (!input.duration) {
-    error.duration = "Required";
-  } else if (input.duration < 1 || input.duration > 24)
+  if (!input.duration) error.duration = "Required";
+  else if (input.duration < 1 || input.duration > 24)
     error.duration = "Between 1 and 24";
 
-  if (!input.season) {
-    error.season = "Select";
-  }
+  if (!input.season) error.season = "Select";
 
   return error;
 }
+
+let namesActivities = {};
 
 const Create = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const allCountries = useSelector((state) => state.allCountries);
+  const allActivities = useSelector((state) => state.activities);
   const [error, setError] = useState({});
   // const [errorButton, setErrorButton] = useState(
   //   Object.values(error).length !== 0 ? true : false
@@ -56,12 +47,12 @@ const Create = () => {
   function handleChange(event) {
     setInput({
       ...input,
-      [event.target.name]: event.target.value,
+      [event.target.name]: event.target.value.toUpperCase(),
     });
     setError(
       validate({
         ...input,
-        [event.target.name]: event.target.value,
+        [event.target.name]: event.target.value.toUpperCase(),
       })
     );
   }
@@ -115,6 +106,12 @@ const Create = () => {
   }
 
   useEffect(() => {
+    if (!namesActivities.length && allActivities.length)
+      allActivities.forEach((activity) => {
+        if (!namesActivities[activity.name]) {
+          namesActivities[activity.name] = true;
+        }
+      });
     dispatch(getCountries());
   }, [dispatch]);
 
@@ -125,7 +122,7 @@ const Create = () => {
       </video>
       <div className={styles.lin}>
         <Link to="/home">
-          <p className={styles.link}>Back</p>
+          <p className={styles.link}>HOME</p>
         </Link>
       </div>
       <div className={styles.container}>
@@ -148,7 +145,8 @@ const Create = () => {
                 <div
                   className={
                     error.name === "Only 20 letters" ||
-                    error.name === "Only letters"
+                    error.name === "Only letters" ||
+                    error.name === "Name in use"
                       ? styles.err12
                       : styles.err1
                   }

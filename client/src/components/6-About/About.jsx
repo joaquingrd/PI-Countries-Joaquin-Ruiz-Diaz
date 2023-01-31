@@ -15,7 +15,7 @@ function About() {
       </div>
 
       <div className={styles.conteiner}>
-        <div className={styles.lin}>
+        <div className={styles.link}>
           <Link to="/home">
             <p className={styles.link}>home</p>
           </Link>
@@ -38,10 +38,6 @@ function About() {
               <br />
               <p>| NodeJS | Express |</p>
               <br />
-              <div className={styles.outerSkils}>
-                <p> Licenciado en Administración </p>
-                <p> Analista Contable</p>
-              </div>
             </div>
             <div className={styles.ks}>
               <a href="https://linkedin.com/in/joaquindev">
