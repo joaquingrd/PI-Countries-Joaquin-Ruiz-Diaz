@@ -1,4 +1,5 @@
 import axios from "axios";
+const { REACT_APP_URL_PATH_API } = process.env;
 
 export const GET_COUNTRIES = "GET_COUNTRIES";
 export const GET_BY_NAME = "GET_BY_NAME";
@@ -21,7 +22,7 @@ export const LOADER = "LOADER";
 
 export const getCountries = () => {
   return function (dispatch) {
-    fetch("http://localhost:3001/countries")
+    fetch(`${REACT_APP_URL_PATH_API}/countries`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_COUNTRIES, payload: data }));
   };
@@ -29,7 +30,7 @@ export const getCountries = () => {
 
 export const getCountryName = (name) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/countries?name=${name}`)
+    fetch(`${REACT_APP_URL_PATH_API}/countries?name=${name}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_BY_NAME, payload: data }))
       .catch((error) => {
@@ -40,7 +41,7 @@ export const getCountryName = (name) => {
 
 export const getDetails = (id) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/countries/${id}`)
+    fetch(`${REACT_APP_URL_PATH_API}/countries/${id}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_DETAILS, payload: data }))
       .catch((error) => {
@@ -51,7 +52,7 @@ export const getDetails = (id) => {
 
 export const getActivity = () => {
   return function (dispatch) {
-    fetch("http://localhost:3001/activities")
+    fetch(`${REACT_APP_URL_PATH_API}/activities`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_ACTIVITY, payload: data }))
       .catch((error) => {
@@ -111,7 +112,7 @@ export const filterByActivity = (payload) => {
 export function postActivities(payload) {
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/activities",
+      `${REACT_APP_URL_PATH_API}/activities`,
       payload
     );
     console.log(response);
