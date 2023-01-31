@@ -13,10 +13,8 @@ function Details(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    setLoading(true);
     dispatch(getDetails(id));
-    setTimeout(() => {
-      setLoading(true);
-    }, 40000);
   }, [dispatch, id]);
 
   console.log(countryDetail);
@@ -171,7 +169,10 @@ function Details(props) {
           </div>
         </>
       ) : (
-        <img className={styles.loader} src={loader} alt="loading" />
+        <div>
+          <img className={styles.loader} src={loader} alt="loading" />
+          <h1 className={styles.loader1}>Loading...</h1>
+        </div>
       )}
     </div>
   );

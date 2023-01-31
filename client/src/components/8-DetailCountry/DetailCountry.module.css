@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: whwh;
+  background-color: rgb(247, 246, 246);
 }
 .vid {
   position: fixed;
@@ -244,6 +244,12 @@
   margin-right: 10px;
 }
 
-.loader{
+.loader {
+}
 
+.loader1 {
+  margin-top: -155px;
+  margin-left: 350px;
+  position: absolute;
+  color: rgb(23, 23, 126);
 }

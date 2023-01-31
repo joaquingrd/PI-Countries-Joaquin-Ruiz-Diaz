@@ -29,7 +29,10 @@ function Home() {
           <Pagination />
         </>
       ) : (
-        <img src={loader} alt="loading" />
+        <div>
+          <img className={styles.loader} src={loader} alt="loading" />
+          <h1 className={styles.loader1}>Loading...</h1>
+        </div>
       )}
     </div>
   );

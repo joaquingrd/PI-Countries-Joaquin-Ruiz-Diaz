@@ -1,5 +1,5 @@
 .body {
-  background-color: #fdfbfb;
+  background-color: rgb(247, 246, 246);
 }
 .video {
   position: fixed;
@@ -18,4 +18,15 @@
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 0, 0, 0);
+}
+
+.loader {
+  margin-top: 20px;
+  margin-left: 290px;
+}
+.loader1 {
+  margin-top: -155px;
+  margin-left: 640px;
+  position: absolute;
+  color: rgb(23, 23, 126);
 }

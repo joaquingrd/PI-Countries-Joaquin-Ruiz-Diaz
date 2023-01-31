@@ -19,6 +19,8 @@ export function validate(input) {
   if (!input.duration) error.duration = "Required";
   else if (input.duration < 1 || input.duration > 24)
     error.duration = "Between 1 and 24";
+  else if (!/^[0-9]*$/.test(input.duration) || typeof input.name !== "string")
+    error.duration = "Only numbers";
 
   if (!input.season) error.season = "Select";
 
@@ -86,16 +88,20 @@ const Create = () => {
 
   function handleSubmit(event) {
     event.preventDefault();
-    dispatch(postActivities(input));
-    alert("Activity created!!!");
-    setInput({
-      name: "",
-      difficulty: "",
-      duration: "",
-      season: "",
-      countryId: [],
-    });
-    history.push("/home");
+    if (input.name) {
+      dispatch(postActivities(input));
+      alert("Activity created!!!");
+      setInput({
+        name: "",
+        difficulty: "",
+        duration: "",
+        season: "",
+        countryId: [],
+      });
+      history.push("/home");
+    } else {
+      window.alert("You need to complete the form");
+    }
   }
 
   function handleDelete(event) {
@@ -160,14 +166,14 @@ const Create = () => {
                 <br />
                 <input
                   className={styles.inp}
-                  type="number"
                   value={input.duration}
                   name="duration"
                   onChange={(event) => handleChange(event)}
                 />
                 <div
                   className={
-                    error.duration === "Between 1 and 24"
+                    error.duration === "Between 1 and 24" ||
+                    error.duration === "Only numbers"
                       ? styles.err12
                       : styles.err3
                   }

@@ -54,12 +54,13 @@ const Pagination = ({ countries, setPageCountries }) => {
     } else if (currentPage > 2 && currentPage < buttons.length - 1) {
       const numPrev = buttons.slice(currentPage - 2, currentPage);
       const numNext = buttons.slice(currentPage, currentPage + 1);
-
       templateButtons = [...numPrev, ...numNext];
     } else if (currentPage > buttons.length - 3) {
       const sliced = buttons.slice(buttons.length - 3);
-
       templateButtons = [...sliced];
+    }
+    if (currentPage > pages) {
+      start();
     }
 
     setarrButons(templateButtons);
