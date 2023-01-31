@@ -26,7 +26,7 @@ const inicialState = {
 const rootReducer = (state = inicialState, action) => {
   switch (action.type) {
     case GET_COUNTRIES:
-      console.log("countries", action.payload);
+      // console.log("countries", action.payload);
       return {
         ...state,
         countries: [...action.payload],
@@ -46,7 +46,7 @@ const rootReducer = (state = inicialState, action) => {
       };
 
     case GET_ACTIVITY:
-      console.log("activity", action.payload);
+      // console.log("activity", action.payload);
       return {
         ...state,
 
