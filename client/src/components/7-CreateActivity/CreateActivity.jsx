@@ -259,11 +259,13 @@ const Create = () => {
                   <option hidden selected>
                     Select country
                   </option>
-                  {allCountries.map((country) => (
-                    <option value={country.id} key={country.name}>
-                      {country.name}
-                    </option>
-                  ))}
+                  {allCountries
+                    .sort((a, b) => a.name.localeCompare(b.name))
+                    .map((country) => (
+                      <option value={country.code} key={country.name}>
+                        {country.name}
+                      </option>
+                    ))}
                 </select>
               </div>
               <br />
