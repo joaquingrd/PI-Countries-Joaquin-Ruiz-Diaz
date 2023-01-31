@@ -2,7 +2,7 @@ const request = require("supertest");
 const app = require("../../src/app");
 const { expect } = require("chai");
 
-describe("GET /dogs", () => {
+describe("GET /countries", () => {
   it("Should return all countries", async () => {
     const response = await request(app).get("/countries");
     expect(response.statusCode).to.equal(200);
@@ -17,7 +17,7 @@ describe("GET /dogs", () => {
   });
 
   it("Should return an error if the country is not found.", async () => {
-    const response = await request(app).get("/dogs?name=sarasa");
+    const response = await request(app).get("/countries?name=sarasa");
     expect(response.statusCode).to.equal(404);
   });
 });
