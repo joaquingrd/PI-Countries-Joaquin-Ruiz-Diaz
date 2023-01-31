@@ -21,6 +21,7 @@ export const POST_ACTIVITY = "POST_ACTIVITY";
 export const LOADER = "LOADER";
 
 export const getCountries = () => {
+  console.log(`${REACT_APP_URL_PATH_API}/countries`);
   return function (dispatch) {
     fetch(`${REACT_APP_URL_PATH_API}/countries`)
       .then((response) => response.json())
@@ -45,7 +46,7 @@ export const getDetails = (id) => {
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_DETAILS, payload: data }))
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 };
@@ -55,9 +56,7 @@ export const getActivity = () => {
     fetch(`${REACT_APP_URL_PATH_API}/activities`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_ACTIVITY, payload: data }))
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch((error) => {});
   };
 };
 
@@ -115,7 +114,7 @@ export function postActivities(payload) {
       `${REACT_APP_URL_PATH_API}/activities`,
       payload
     );
-    console.log(response);
+    // console.log(response);
     return response;
   };
 }
