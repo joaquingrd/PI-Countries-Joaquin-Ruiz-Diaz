@@ -24,13 +24,11 @@ require("dotenv").config();
 const { PORT } = process.env;
 
 // Syncing all the models at once.
-conn
-  .sync({ force: true })
-  .then(() => {
-    //alter true - actualiza las tablas de BDD en base a los modelos
-    server.listen(PORT, async () => {
-      console.log("listening at port", PORT); // eslint-disable-line no-console
-      await countryDataBase();
-    });
-  })
-  .catch((err) => console.log(err.message));
+conn.sync({ force: false }).then(() => {
+  //alter true - actualiza las tablas de BDD en base a los modelos
+  server.listen(PORT, async () => {
+    // console.log("listening at port", PORT);
+    await countryDataBase(); // eslint-disable-line no-console
+  });
+});
+// .catch((err) => console.log(err.message));
