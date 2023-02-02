@@ -147,6 +147,7 @@ const Create = () => {
                   value={input.name}
                   name="name"
                   onChange={(event) => handleChange(event)}
+                  autoComplete="off"
                 />
                 <div
                   className={
@@ -170,6 +171,7 @@ const Create = () => {
                   type="text"
                   name="duration"
                   onChange={(event) => handleChange(event)}
+                  autoComplete="off"
                 />
                 <div
                   className={
