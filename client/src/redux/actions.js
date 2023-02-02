@@ -17,7 +17,6 @@ export const FILTER_BY_CONTINENT = "FILTER_BY_CONTINENT";
 export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 
 export const POST_ACTIVITY = "POST_ACTIVITY";
-export const POST = "POST";
 
 export const getCountries = () => {
   return function (dispatch) {
