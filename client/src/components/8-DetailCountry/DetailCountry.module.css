@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   background-color: rgb(31, 18, 1);
-  height: 617px;
+  height: 649px;
 }
 .vid {
   position: fixed;
@@ -23,7 +23,7 @@
   transition: 0.2s;
   position: absolute;
   background-color: #db720f00;
-  margin-bottom: 445px;
+  margin-bottom: 475px;
   margin-left: -383px;
 }
 .link:hover {

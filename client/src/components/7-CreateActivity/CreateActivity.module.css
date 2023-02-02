@@ -1,6 +1,6 @@
 .body {
   background-color: rgb(31, 18, 1);
-  height: 600px;
+  height: 649px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +22,7 @@
   transition: 0.2s;
   position: relative;
   background-color: #db720f00;
-  margin-bottom: 400px;
+  margin-bottom: 447px;
   margin-left: -243px;
 }
 
