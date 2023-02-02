@@ -20,7 +20,6 @@ export const FILTER_BY_ACTIVITY = "FILTER_BY_ACTIVITY";
 export const POST_ACTIVITY = "POST_ACTIVITY";
 
 export const getCountries = () => {
-  // console.log(`${REACT_APP_URL_PATH_API}/countries`);
   return function (dispatch) {
     fetch(`${REACT_APP_URL_PATH_API}/countries`)
       .then((response) => response.json())
@@ -47,6 +46,15 @@ export const getDetails = (id) => {
       .catch((error) => {
         // console.log(error);
       });
+  };
+};
+
+export const getDetail = (id) => {
+  return async function (dispatch) {
+    const response = await axios(
+      `${REACT_APP_URL_PATH_API}/countries/${id}`,
+      payload
+    );
   };
 };
 
@@ -106,14 +114,13 @@ export const filterByActivity = (payload) => {
   };
 };
 
-//utilizo axios para utilizar el metodo post.
 export function postActivities(payload) {
   return async function (dispatch) {
     const response = await axios.post(
       `${REACT_APP_URL_PATH_API}/activities`,
       payload
     );
-    // console.log(response);
+
     return response;
   };
 }

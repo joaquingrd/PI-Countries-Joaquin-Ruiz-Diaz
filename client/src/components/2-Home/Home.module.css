@@ -1,5 +1,6 @@
 .body {
-  background-color: rgb(247, 246, 246);
+  background-color: rgb(31, 18, 1);
+  height: 617px;
 }
 .video {
   position: fixed;
@@ -21,12 +22,14 @@
 }
 
 .loader {
-  margin-top: 20px;
-  margin-left: 290px;
+  margin-top: 150px;
+  margin-left: 555px;
+  height: 300px;
+
+  /* filter: drop-shadow(0px 80px 30px #7c7b7b); */
 }
+
 .loader1 {
-  margin-top: -155px;
-  margin-left: 640px;
-  position: absolute;
-  color: rgb(23, 23, 126);
+  margin-left: 655px;
+  color: white;
 }

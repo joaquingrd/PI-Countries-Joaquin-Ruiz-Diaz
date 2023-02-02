@@ -12,7 +12,7 @@ function About() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
-    }, 800);
+    }, 700);
   }, []);
 
   return (

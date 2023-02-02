@@ -1,5 +1,6 @@
 .body {
-  background-color: #fff;
+  background-color: rgb(31, 18, 1);
+  height: 600px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,8 +22,8 @@
   transition: 0.2s;
   position: relative;
   background-color: #db720f00;
-  margin-bottom: 297px;
-  margin-left: -263px;
+  margin-bottom: 400px;
+  margin-left: -243px;
 }
 
 .lin :hover {
@@ -32,7 +33,7 @@
 }
 
 .container {
-  background-color: rgba(214, 211, 208, 0.719);
+  background-color: rgba(210, 214, 208, 0.719);
   position: relative;
   width: 620px;
   height: 360px;
@@ -42,7 +43,8 @@
   place-items: center;
   line-height: 1.5;
   box-shadow: 0 20px 30px rgba(0, 0, 0);
-  margin-top: 120px;
+  margin-top: 50px;
+  margin-left: 20px;
   border-radius: 20px;
 }
 .container1 {

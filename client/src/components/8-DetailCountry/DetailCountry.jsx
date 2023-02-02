@@ -13,7 +13,9 @@ function Details(props) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    setLoading(true);
+    setTimeout(() => {
+      setLoading(true);
+    }, 700);
     dispatch(getDetails(id));
   }, [dispatch, id]);
 

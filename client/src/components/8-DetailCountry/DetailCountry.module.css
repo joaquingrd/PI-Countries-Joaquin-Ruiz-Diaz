@@ -2,7 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(247, 246, 246);
+  background-color: rgb(31, 18, 1);
+  height: 617px;
 }
 .vid {
   position: fixed;
@@ -42,6 +43,7 @@
   margin-top: 100px;
   box-shadow: 0 20px 30px rgba(0, 0, 0);
   border-radius: 20px;
+  margin-left: 70px;
 }
 .flag {
   height: 205px;
@@ -245,11 +247,10 @@
 }
 
 .loader {
+  height: 300px;
 }
 
 .loader1 {
-  margin-top: -155px;
-  margin-left: 350px;
-  position: absolute;
-  color: rgb(23, 23, 126);
+  margin-left: 95px;
+  color: white;
 }

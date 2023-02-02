@@ -1,5 +1,6 @@
 .body {
-  background-color: rgb(247, 246, 246);
+  background-color: rgb(31, 18, 1);
+  height: 617px;
 }
 
 .vid {
@@ -55,7 +56,7 @@
   margin-top: 35px;
   box-shadow: 0 20px 30px rgba(0, 0, 0);
   border-radius: 20px;
-  margin-left: 470px;
+  margin-left: 520px;
   display: flex;
 }
 .datos {
@@ -128,12 +129,12 @@ h3 {
 }
 
 .loader {
-  margin-left: 300px;
+  margin-top: 150px;
+  margin-left: 555px;
+  height: 300px;
 }
 
 .loader1 {
-  margin-top: -155px;
-  margin-left: 650px;
-  position: absolute;
-  color: rgb(23, 23, 126);
+  margin-left: 655px;
+  color: white;
 }
