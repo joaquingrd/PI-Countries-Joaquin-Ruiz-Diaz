@@ -262,7 +262,7 @@ const Create = () => {
                   {allCountries
                     .sort((a, b) => a.name.localeCompare(b.name))
                     .map((country) => (
-                      <option value={country.code} key={country.name}>
+                      <option value={country.id} key={country.name}>
                         {country.name}
                       </option>
                     ))}
