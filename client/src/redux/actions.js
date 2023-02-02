@@ -49,15 +49,6 @@ export const getDetails = (id) => {
   };
 };
 
-export const getDetail = (id) => {
-  return async function (dispatch) {
-    const response = await axios(
-      `${REACT_APP_URL_PATH_API}/countries/${id}`,
-      payload
-    );
-  };
-};
-
 export const getActivity = () => {
   return function (dispatch) {
     fetch(`${REACT_APP_URL_PATH_API}/activities`)
