@@ -10,9 +10,9 @@
 - Aprender y practicar el workflow de GIT.
 - Usar y practicar testing.
 
-## Enunciado
+## Resultado
 
-La idea general es crear una aplicación en la cual se pueda ver información de  distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella poder, entre otras cosas:
+La idea general fue crear una aplicación en la cual se pueda ver información de  distintos paises utilizando la api externa [restcountries](https://restcountries.com/) y a partir de ella poder, entre otras cosas:
 
 - Buscar paises
 - Filtrarlos / Ordenarlos
