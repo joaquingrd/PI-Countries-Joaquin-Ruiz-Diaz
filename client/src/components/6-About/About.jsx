@@ -48,6 +48,8 @@ function About() {
                   <br />
                   <p>| NodeJS | Express |</p>
                   <br />
+                  <p>| Sequelize | PostgreSQL |</p>
+                  <br />
                 </div>
                 <div className={styles.ks}>
                   <a href="https://linkedin.com/in/joaquindev">

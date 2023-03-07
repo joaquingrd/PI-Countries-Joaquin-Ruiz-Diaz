@@ -62,7 +62,7 @@
 .datos {
   text-align: center;
   font-family: monospace;
-  margin-top: 25px;
+  margin-top: 20px;
   margin-left: 40px;
   margin-right: -30px;
 }
@@ -83,8 +83,8 @@
 }
 
 .skils {
-  margin-top: 15px;
-  font-size: 16px;
+  margin-top: 20px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: 5px;
 }
@@ -108,7 +108,7 @@
 .ks {
   display: flex;
   align-items: center;
-  margin-top: 15px;
+
   margin-bottom: 2px;
 }
 .ksli {
