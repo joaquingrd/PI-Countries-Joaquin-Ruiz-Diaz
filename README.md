@@ -2,6 +2,10 @@
 
 # Individual Project - Henry Countries
 
+<p align="left">
+  <img height="200" src="./landing1.jpg" title="Landing page"/>
+</p>
+
 ## Objetivos del Proyecto
 
 - Construir una App utlizando React, Redux, Node y Sequelize.
