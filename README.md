@@ -1,4 +1,9 @@
-![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
+<br>
+<p align="left">
+  <img src="./githubprofile.jpg" title="Banner Profile"/>
+</p>
+
+<br>
 
 # Individual Project - Henry Countries
 
